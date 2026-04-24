@@ -5,21 +5,19 @@ class ThemeDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size size = calculateDialogSize(
+    final Size preferContentSize = calculateDialogSize(
       context,
       preferredWidth: 420,
       preferredHeight: 280,
     );
 
-    return FaAlertDialog(
+    return FaDialog(
       titleText: "Select Experience",
-      icon: const Icon(Icons.palette_outlined, size: 18),
+      iconData: Icons.palette_outlined,
       contentPadding: EdgeInsets.zero,
-      content: SizedBox(
-        width: size.width,
-        height: size.height,
-        child: _buildContent(context),
-      ),
+      preferredContentWidth: preferContentSize.width,
+      preferredContentHeight: preferContentSize.height,
+      content: _buildContent(context),
     );
   }
 
