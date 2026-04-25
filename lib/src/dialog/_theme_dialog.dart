@@ -70,7 +70,7 @@ class ThemeDialog extends StatelessWidget {
                         shape: BoxShape.circle,
                       ),
                       child: Icon(
-                        Icons.palette,
+                        themeDef.icon,
                         color: isSelected ? primary : Colors.grey,
                         size: 18,
                       ),

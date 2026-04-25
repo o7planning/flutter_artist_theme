@@ -20,9 +20,7 @@ class DefaultProTheme extends FaTheme {
 
   @override
   FaThemeTokens createThemeTokens() {
-    final colors = const FaColorTokens(
-      brightness: Brightness.light,
-
+    final colors = FaColorTokens(
       primary: Color(0xFF355CA8),
       onPrimary: Colors.white,
 
@@ -73,27 +71,19 @@ class DefaultProTheme extends FaTheme {
 
       radius: const FaRadiusTokens(sm: 6, md: 12, lg: 14, xl: 18),
 
-      typography: const FaTypographyTokens(
-        body: TextStyle(fontSize: 14, fontFamily: "Inter"),
-        title: TextStyle(
-          fontSize: 20,
-          fontWeight: FontWeight.bold,
-          fontFamily: "Inter",
-        ),
-        caption: TextStyle(fontSize: 12, fontFamily: "Inter"),
-      ),
+      typography: FaTypographyTokens(),
 
       components: const FaComponentTokens(),
 
-      layout: const FaLayoutTokens(sidebarWidth: 260, contentMaxWidth: 1200),
-
-      layoutColors: const FaLayoutColorTokens(
-        sidebarSurface: Color(0xFF1E293B),
-        onSidebarSurface: Color(0xFFF1F3F4),
-        topbarSurface: Colors.white,
-        onTopbarSurface: Color(0xFF355CA8),
+      layout: const FaLayoutTokens(
+        metrics: FaLayoutMetricsTokens(),
+        colors: FaLayoutColorTokens(
+          sidebarSurface: Color(0xFF1E293B),
+          onSidebarSurface: Color(0xFFF1F3F4),
+          topbarSurface: Colors.white,
+          onTopbarSurface: Color(0xFF355CA8),
+        ),
       ),
-
       motion: const FaMotionTokens(),
     );
   }

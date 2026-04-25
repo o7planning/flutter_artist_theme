@@ -6,10 +6,18 @@ part of '../core.dart';
 
 class FaThemeFactory {
   static ThemeData create(FaTheme theme) {
+    final seedColorScheme = ColorScheme.fromSeed(
+      seedColor: theme.seedColor,
+      brightness: theme.brightness,
+    );
+    theme.tokens.colors._initDefault(seedColorScheme);
+
     final colors = theme.tokens.colors;
-    final layoutColors = theme.tokens.layoutColors;
     final typography = theme.tokens.typography;
     final radius = theme.tokens.radius;
+    final layout = theme.tokens.layout;
+
+    final textTheme = _buildTextTheme(theme.brightness, colors, typography);
 
     final colorScheme = ColorScheme(
       brightness: theme.brightness,
@@ -94,8 +102,8 @@ class FaThemeFactory {
       ),
 
       appBarTheme: AppBarTheme(
-        backgroundColor: layoutColors.topbarSurface,
-        foregroundColor: layoutColors.onTopbarSurface,
+        backgroundColor: layout.colors.topbarSurface,
+        foregroundColor: layout.colors.onTopbarSurface,
         elevation: 0,
       ),
 
@@ -107,9 +115,51 @@ class FaThemeFactory {
         indicatorColor: colors.primary,
       ),
 
-      textTheme: typography.toTextTheme(colors),
+      textTheme: textTheme,
 
       extensions: [theme.tokens],
     );
+  }
+
+  static TextTheme _buildTextTheme(
+    Brightness brightness,
+    FaColorTokens colors,
+    FaTypographyTokens typography,
+  ) {
+    // Initialize default TextTheme from standard Typography
+    final TextTheme base = brightness == Brightness.dark
+        ? Typography.material2021().white
+        : Typography.material2021().black;
+
+    typography._initDefault(base);
+
+    return base
+        .copyWith(
+          // Only override if the value in tokens is not null
+          displayLarge: typography._displayLarge ?? base.displayLarge,
+          displayMedium: typography._displayMedium ?? base.displayMedium,
+          displaySmall: typography._displaySmall ?? base.displaySmall,
+
+          headlineLarge: typography._headlineLarge ?? base.headlineLarge,
+          headlineMedium: typography._headlineMedium ?? base.headlineMedium,
+          headlineSmall: typography._headlineSmall ?? base.headlineSmall,
+
+          titleLarge: typography._titleLarge ?? base.titleLarge,
+          titleMedium: typography._titleMedium ?? base.titleMedium,
+          titleSmall: typography._titleSmall ?? base.titleSmall,
+
+          bodyLarge: typography._bodyLarge ?? base.bodyLarge,
+          bodyMedium: typography._bodyMedium ?? base.bodyMedium,
+          bodySmall: typography._bodySmall ?? base.bodySmall,
+
+          labelLarge: typography._labelLarge ?? base.labelLarge,
+          labelMedium: typography._labelMedium ?? base.labelMedium,
+          labelSmall: typography._labelSmall ?? base.labelSmall,
+        )
+        .apply(
+          // Ensure text colors always have good contrast with the surface
+          bodyColor: colors.onSurface,
+          displayColor: colors.onSurface,
+        );
   }
 }

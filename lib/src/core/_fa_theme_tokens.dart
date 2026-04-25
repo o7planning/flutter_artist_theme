@@ -8,7 +8,6 @@ class FaThemeTokens extends ThemeExtension<FaThemeTokens> {
   final FaTypographyTokens typography;
   final FaComponentTokens components;
   final FaLayoutTokens layout;
-  final FaLayoutColorTokens layoutColors;
   final FaMotionTokens motion;
 
   late final _FaThemeShortcut shortcut = _FaThemeShortcut(this);
@@ -21,7 +20,6 @@ class FaThemeTokens extends ThemeExtension<FaThemeTokens> {
     required this.typography,
     required this.components,
     required this.layout,
-    required this.layoutColors,
     required this.motion,
   });
 
@@ -45,7 +43,6 @@ class FaThemeTokens extends ThemeExtension<FaThemeTokens> {
       typography: typography ?? this.typography,
       components: components ?? this.components,
       layout: layout ?? this.layout,
-      layoutColors: layoutColors ?? this.layoutColors,
       motion: motion ?? this.motion,
     );
   }
@@ -60,72 +57,57 @@ class FaThemeTokens extends ThemeExtension<FaThemeTokens> {
       radius: _lerpRadius(radius, other.radius, t),
       elevation: _lerpElevation(elevation, other.elevation, t),
       typography: other.typography,
-      // No need.
       components: other.components,
       layout: _lerpLayout(layout, other.layout, t),
-      layoutColors: _lerpLayoutColors(layoutColors, other.layoutColors, t),
       motion: other.motion,
     );
   }
 
   FaColorTokens _lerpColors(FaColorTokens a, FaColorTokens b, double t) {
     return FaColorTokens(
-      brightness: t < 0.5 ? a.brightness : b.brightness,
-
-      primary: Color.lerp(a.primary, b.primary, t)!,
-      onPrimary: Color.lerp(a.onPrimary, b.onPrimary, t)!,
-
-      secondary: Color.lerp(a.secondary, b.secondary, t)!,
-      onSecondary: Color.lerp(a.onSecondary, b.onSecondary, t)!,
-
-      tertiary: Color.lerp(a.tertiary, b.tertiary, t)!,
-      onTertiary: Color.lerp(a.onTertiary, b.onTertiary, t)!,
-
-      error: Color.lerp(a.error, b.error, t)!,
-      onError: Color.lerp(a.onError, b.onError, t)!,
-
-      background: Color.lerp(a.background, b.background, t)!,
-      surface: Color.lerp(a.surface, b.surface, t)!,
-
-      onSurface: Color.lerp(a.onSurface, b.onSurface, t)!,
-      onSurfaceVariant: Color.lerp(a.onSurfaceVariant, b.onSurfaceVariant, t)!,
-
+      primary: Color.lerp(a.primary, b.primary, t),
+      onPrimary: Color.lerp(a.onPrimary, b.onPrimary, t),
+      secondary: Color.lerp(a.secondary, b.secondary, t),
+      onSecondary: Color.lerp(a.onSecondary, b.onSecondary, t),
+      tertiary: Color.lerp(a.tertiary, b.tertiary, t),
+      onTertiary: Color.lerp(a.onTertiary, b.onTertiary, t),
+      error: Color.lerp(a.error, b.error, t),
+      onError: Color.lerp(a.onError, b.onError, t),
+      background: Color.lerp(a.background, b.background, t),
+      surface: Color.lerp(a.surface, b.surface, t),
+      onSurface: Color.lerp(a.onSurface, b.onSurface, t),
+      onSurfaceVariant: Color.lerp(a.onSurfaceVariant, b.onSurfaceVariant, t),
       surfaceContainerLowest: Color.lerp(
         a.surfaceContainerLowest,
         b.surfaceContainerLowest,
         t,
-      )!,
+      ),
       surfaceContainerLow: Color.lerp(
         a.surfaceContainerLow,
         b.surfaceContainerLow,
         t,
-      )!,
-      surfaceContainer: Color.lerp(a.surfaceContainer, b.surfaceContainer, t)!,
+      ),
+      surfaceContainer: Color.lerp(a.surfaceContainer, b.surfaceContainer, t),
       surfaceContainerHigh: Color.lerp(
         a.surfaceContainerHigh,
         b.surfaceContainerHigh,
         t,
-      )!,
+      ),
       surfaceContainerHighest: Color.lerp(
         a.surfaceContainerHighest,
         b.surfaceContainerHighest,
         t,
-      )!,
-
-      textPrimary: Color.lerp(a.textPrimary, b.textPrimary, t)!,
-      textSecondary: Color.lerp(a.textSecondary, b.textSecondary, t)!,
-
-      border: Color.lerp(a.border, b.border, t)!,
-      outline: Color.lerp(a.outline, b.outline, t)!,
-      outlineVariant: Color.lerp(a.outlineVariant, b.outlineVariant, t)!,
-
-      shadow: Color.lerp(a.shadow, b.shadow, t)!,
-      scrim: Color.lerp(a.scrim, b.scrim, t)!,
-
-      inverseSurface: Color.lerp(a.inverseSurface, b.inverseSurface, t)!,
-      onInverseSurface: Color.lerp(a.onInverseSurface, b.onInverseSurface, t)!,
-      inversePrimary: Color.lerp(a.inversePrimary, b.inversePrimary, t)!,
-
+      ),
+      textPrimary: Color.lerp(a.textPrimary, b.textPrimary, t),
+      textSecondary: Color.lerp(a.textSecondary, b.textSecondary, t),
+      border: Color.lerp(a.border, b.border, t),
+      outline: Color.lerp(a.outline, b.outline, t),
+      outlineVariant: Color.lerp(a.outlineVariant, b.outlineVariant, t),
+      shadow: Color.lerp(a.shadow, b.shadow, t),
+      scrim: Color.lerp(a.scrim, b.scrim, t),
+      inverseSurface: Color.lerp(a.inverseSurface, b.inverseSurface, t),
+      onInverseSurface: Color.lerp(a.onInverseSurface, b.onInverseSurface, t),
+      inversePrimary: Color.lerp(a.inversePrimary, b.inversePrimary, t),
       divider: Color.lerp(a.divider, b.divider, t),
     );
   }
@@ -163,21 +145,40 @@ class FaThemeTokens extends ThemeExtension<FaThemeTokens> {
 
   FaLayoutTokens _lerpLayout(FaLayoutTokens a, FaLayoutTokens b, double t) {
     return FaLayoutTokens(
-      sidebarWidth: lerpDouble(a.sidebarWidth, b.sidebarWidth, t)!,
-      contentMaxWidth: lerpDouble(a.contentMaxWidth, b.contentMaxWidth, t)!,
-    );
-  }
-
-  FaLayoutColorTokens _lerpLayoutColors(
-    FaLayoutColorTokens a,
-    FaLayoutColorTokens b,
-    double t,
-  ) {
-    return FaLayoutColorTokens(
-      sidebarSurface: Color.lerp(a.sidebarSurface, b.sidebarSurface, t)!,
-      onSidebarSurface: Color.lerp(a.onSidebarSurface, b.onSidebarSurface, t)!,
-      topbarSurface: Color.lerp(a.topbarSurface, b.topbarSurface, t)!,
-      onTopbarSurface: Color.lerp(a.onTopbarSurface, b.onTopbarSurface, t)!,
+      metrics: FaLayoutMetricsTokens(
+        sidebarWidth: lerpDouble(
+          a.metrics.sidebarWidth,
+          b.metrics.sidebarWidth,
+          t,
+        )!,
+        contentMaxWidth: lerpDouble(
+          a.metrics.contentMaxWidth,
+          b.metrics.contentMaxWidth,
+          t,
+        ),
+      ),
+      colors: FaLayoutColorTokens(
+        sidebarSurface: Color.lerp(
+          a.colors.sidebarSurface,
+          b.colors.sidebarSurface,
+          t,
+        )!,
+        onSidebarSurface: Color.lerp(
+          a.colors.onSidebarSurface,
+          b.colors.onSidebarSurface,
+          t,
+        )!,
+        topbarSurface: Color.lerp(
+          a.colors.topbarSurface,
+          b.colors.topbarSurface,
+          t,
+        )!,
+        onTopbarSurface: Color.lerp(
+          a.colors.onTopbarSurface,
+          b.colors.onTopbarSurface,
+          t,
+        )!,
+      ),
     );
   }
 }

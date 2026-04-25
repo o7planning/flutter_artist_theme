@@ -10,6 +10,7 @@ import 'default_theme.dart';
 part 'core/_fa_theme.dart';
 part 'core/_fa_theme_factory.dart';
 part 'core/_fa_theme_hub.dart';
+part 'core/_fa_theme_shortcut.dart';
 part 'core/_fa_theme_tokens.dart';
 part 'core/_theme_extension.dart';
 part 'dialog/_theme_dialog.dart';

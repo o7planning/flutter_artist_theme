@@ -23,9 +23,7 @@ class DefaultTheme extends FaTheme {
 
   @override
   FaThemeTokens createThemeTokens() {
-    final colors = const FaColorTokens(
-      brightness: Brightness.light,
-
+    final colors = FaColorTokens(
       primary: Color(0xFF056AB4),
       onPrimary: Colors.white,
 
@@ -69,34 +67,29 @@ class DefaultTheme extends FaTheme {
 
     return FaThemeTokens(
       colors: colors,
-
       spacing: const FaSpacingTokens(xs: 4, sm: 8, md: 12, lg: 16, xl: 24),
-
       elevation: const FaElevationTokens(level1: 2, level2: 4, level3: 6),
-
       radius: const FaRadiusTokens(sm: 4, md: 8, lg: 12, xl: 16),
 
-      typography: const FaTypographyTokens(
-        body: TextStyle(fontSize: 14, fontFamily: "Ubuntu"),
-        title: TextStyle(
-          fontSize: 20,
-          fontWeight: FontWeight.bold,
-          fontFamily: "Ubuntu",
-        ),
-        caption: TextStyle(fontSize: 12, fontFamily: "Ubuntu"),
+      typography: FaTypographyTokens(
+        // body: TextStyle(fontSize: 14, fontFamily: "Ubuntu"),
+        // title: TextStyle(
+        //   fontSize: 20,
+        //   fontWeight: FontWeight.bold,
+        //   fontFamily: "Ubuntu",
+        // ),
+        // caption: TextStyle(fontSize: 12, fontFamily: "Ubuntu"),
       ),
-
       components: const FaComponentTokens(),
-
-      layout: const FaLayoutTokens(sidebarWidth: 260, contentMaxWidth: 1200),
-
-      layoutColors: const FaLayoutColorTokens(
-        sidebarSurface: Color(0xFF10324A),
-        onSidebarSurface: Colors.white,
-        topbarSurface: Colors.white,
-        onTopbarSurface: Color(0xFF056AB4),
+      layout: const FaLayoutTokens(
+        metrics: FaLayoutMetricsTokens(),
+        colors: FaLayoutColorTokens(
+          sidebarSurface: Color(0xFF10324A),
+          onSidebarSurface: Colors.white,
+          topbarSurface: Colors.white,
+          onTopbarSurface: Color(0xFF056AB4),
+        ),
       ),
-
       motion: const FaMotionTokens(),
     );
   }
