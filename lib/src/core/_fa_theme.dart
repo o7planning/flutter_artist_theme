@@ -1,5 +1,8 @@
 part of '../core.dart';
 
+Typography getMaterialTypography() =>
+    Typography.material2021(platform: defaultTargetPlatform);
+
 /// ======================================================
 /// FA THEME BASE
 /// ======================================================

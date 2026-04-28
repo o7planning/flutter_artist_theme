@@ -72,13 +72,7 @@ class DefaultTheme extends FaTheme {
       radius: const FaRadiusTokens(sm: 4, md: 8, lg: 12, xl: 16),
 
       typography: FaTypographyTokens(
-        // body: TextStyle(fontSize: 14, fontFamily: "Ubuntu"),
-        // title: TextStyle(
-        //   fontSize: 20,
-        //   fontWeight: FontWeight.bold,
-        //   fontFamily: "Ubuntu",
-        // ),
-        // caption: TextStyle(fontSize: 12, fontFamily: "Ubuntu"),
+        displayLarge: TextStyle(color: Colors.blue, fontSize: 20),
       ),
       components: const FaComponentTokens(),
       layout: const FaLayoutTokens(

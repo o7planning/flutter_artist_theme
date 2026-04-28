@@ -11,6 +11,12 @@ dependencies:
   flutter:
     sdk: flutter
 
+  davi: ^4.0.1
+  tabbed_view: ^3.1.0
+
+  flutter_artist_core:
+    path: ../flutter_artist_core
+
   flutter_artist_commons_ui:
     path: ../flutter_artist_commons_ui
 

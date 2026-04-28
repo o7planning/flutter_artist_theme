@@ -126,10 +126,10 @@ class FaThemeFactory {
     FaColorTokens colors,
     FaTypographyTokens typography,
   ) {
-    // Initialize default TextTheme from standard Typography
+    final Typography materialTypography = getMaterialTypography();
     final TextTheme base = brightness == Brightness.dark
-        ? Typography.material2021().white
-        : Typography.material2021().black;
+        ? materialTypography.white
+        : materialTypography.black;
 
     typography._initDefault(base);
 
