@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 
 import '../../../flutter_artist_theme.dart';
 import '../dialog/code_example_dialog.dart';
+import 'package:flutter_artist_core/flutter_artist_core.dart';
 
 /// Accordion Group chung
 Widget buildAccordionGroup(
@@ -152,8 +153,7 @@ Widget buildRadiusPreview(
   );
 }
 
-
-Widget  buildHexCell(BuildContext context, String hex) {
+Widget buildHexCell(BuildContext context, String hex) {
   return Padding(
     padding: const EdgeInsets.symmetric(horizontal: 8),
     child: Row(
@@ -161,10 +161,7 @@ Widget  buildHexCell(BuildContext context, String hex) {
         Expanded(
           child: Text(
             hex,
-            style: const TextStyle(
-              fontFamily: 'monospace',
-              fontSize: 12,
-            ),
+            style: const TextStyle(fontFamily: 'monospace', fontSize: 12),
           ),
         ),
         InkWell(
@@ -181,11 +178,11 @@ Widget  buildHexCell(BuildContext context, String hex) {
             );
           },
           child: Padding(
-            padding: const EdgeInsets.all(4.0),
+            padding: EdgeInsets.all(4.0),
             child: Icon(
               Icons.copy_rounded,
               size: 14,
-              color: Theme.of(context).primaryColor.withValues(alpha: 0.6),
+              color: FaColorUtils.primaryContent(context),
             ),
           ),
         ),
@@ -194,9 +191,7 @@ Widget  buildHexCell(BuildContext context, String hex) {
   );
 }
 
-
-
-Widget  buildColorPreview(Color color) {
+Widget buildColorPreview(Color color) {
   return Container(
     margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
     decoration: BoxDecoration(
