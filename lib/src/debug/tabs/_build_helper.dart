@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_artist_core/flutter_artist_core.dart';
 
 import '../../../flutter_artist_theme.dart';
 import '../dialog/code_example_dialog.dart';
-import 'package:flutter_artist_core/flutter_artist_core.dart';
 
 /// Accordion Group chung
 Widget buildAccordionGroup(

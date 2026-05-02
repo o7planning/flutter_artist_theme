@@ -21,7 +21,7 @@ class ThemeViewerDialog extends StatelessWidget {
     );
 
     return FaDialog(
-      titleText: "Debug Theme Viewer",
+      titleText: "Debug Theme Inspector",
       iconData: Icons.bug_report_outlined,
       preferredContentWidth: preferSize.width,
       preferredContentHeight: preferSize.height,

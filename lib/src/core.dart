@@ -8,7 +8,7 @@ import 'package:flutter_artist_theme/src/utils/davi_table_utils.dart';
 
 import 'debug/model/typography_row_data.dart';
 import 'debug/tabs/_build_helper.dart';
-import 'debug/theme_viewer_dialog.dart';
+import 'debug/theme_inspector_dialog.dart';
 import 'default_pro_theme.dart';
 import 'default_theme.dart';
 
