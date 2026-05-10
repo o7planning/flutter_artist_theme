@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../../../flutter_artist_theme.dart';
-import '_build_helper.dart';
-import '_example_codes.dart';
+import '../../../../flutter_artist_theme.dart';
+import '../../_build_helper.dart';
+import '../_example_codes.dart';
 
 class OthersTabContent extends StatelessWidget {
   const OthersTabContent({super.key});

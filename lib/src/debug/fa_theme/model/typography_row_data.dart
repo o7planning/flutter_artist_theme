@@ -14,15 +14,12 @@ class TypographyRowData {
   });
 
   String getInfo(TextStyle s) {
-    // Soi kỹ: Nếu fontSize vẫn null (vô lý nhưng cứ phòng xa),
-    // ta lấy từ thuộc tính nòng cốt của TextStyle
     final double size = s.fontSize ?? 0.0;
     final sizeStr = size > 0 ? size.toStringAsFixed(1) : "Default";
 
     final weight = _convertWeight(s.fontWeight);
     final spacing = s.letterSpacing?.toStringAsFixed(2) ?? "0.00";
 
-    // Làm sạch Family cho sướng mắt
     String family = "System";
     if (s.fontFamily != null) {
       if (s.fontFamily!.contains("AppleSystem") ||

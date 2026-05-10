@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_artist_core/flutter_artist_core.dart';
 
-import '../../../flutter_artist_theme.dart';
-import '../dialog/code_example_dialog.dart';
+import '../../flutter_artist_theme.dart';
+import 'dialog/code_example_dialog.dart';
 
-/// Accordion Group chung
 Widget buildAccordionGroup(
   BuildContext context, {
   required String title,
@@ -38,7 +37,6 @@ Widget buildAccordionGroup(
   );
 }
 
-/// Hiển thị thông số dạng số/chữ kèm thanh bar trực quan
 Widget buildMetricRow(
   BuildContext context, {
   required String label,
@@ -155,7 +153,7 @@ Widget buildRadiusPreview(
 
 Widget buildHexCell(BuildContext context, String hex) {
   return Padding(
-    padding: const EdgeInsets.symmetric(horizontal: 8),
+    padding: const EdgeInsets.symmetric(horizontal: 4),
     child: Row(
       children: [
         Expanded(
@@ -182,7 +180,7 @@ Widget buildHexCell(BuildContext context, String hex) {
             child: Icon(
               Icons.copy_rounded,
               size: 14,
-              color: FaColorUtils.primaryContent(context),
+              color: context.faColors.action.ink.primary,
             ),
           ),
         ),
@@ -193,7 +191,7 @@ Widget buildHexCell(BuildContext context, String hex) {
 
 Widget buildColorPreview(Color color) {
   return Container(
-    margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+    margin: const EdgeInsets.symmetric(horizontal: 4, vertical: 4),
     decoration: BoxDecoration(
       color: color,
       border: Border.all(color: Colors.grey.withValues(alpha: 0.3)),

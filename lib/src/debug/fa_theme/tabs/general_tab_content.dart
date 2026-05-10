@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../flutter_artist_theme.dart';
+import '../../../../flutter_artist_theme.dart';
 
 class GeneralTabContent extends StatelessWidget {
   const GeneralTabContent({super.key});

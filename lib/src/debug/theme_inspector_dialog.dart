@@ -1,16 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_artist_commons_ui/flutter_artist_commons_ui.dart';
-import 'package:flutter_artist_theme/src/debug/tabs/general_tab_content.dart';
-import 'package:flutter_artist_theme/src/debug/tabs/others_tab_content.dart';
+import 'package:flutter_artist_theme/src/debug/fa_theme/tabs/general_tab_content.dart';
+import 'package:flutter_artist_theme/src/debug/fa_theme/tabs/others_tab_content.dart';
 import 'package:tabbed_view/tabbed_view.dart';
 
 import '../../flutter_artist_theme.dart';
 import '../utils/tab_theme_utils.dart';
-import 'tabs/component_tab_content.dart';
-import 'tabs/layout_tab_content.dart';
+import 'fa_theme/tabs/component_tab_content.dart';
+import 'fa_theme/tabs/layout_tab_content.dart';
 
-class ThemeViewerDialog extends StatelessWidget {
-  const ThemeViewerDialog({super.key});
+class ThemeInspectorDialog extends StatelessWidget {
+  const ThemeInspectorDialog({super.key});
+
+  static Future<void> show(BuildContext context) async {
+    return await showDialog(
+      context: context,
+      builder: (_) {
+        return const ThemeInspectorDialog();
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +31,7 @@ class ThemeViewerDialog extends StatelessWidget {
 
     return FaDialog(
       titleText: "Debug Theme Inspector",
-      iconData: Icons.bug_report_outlined,
+      iconData: Icons.palette_outlined,
       preferredContentWidth: preferSize.width,
       preferredContentHeight: preferSize.height,
       contentPadding: EdgeInsets.all(5),

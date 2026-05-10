@@ -93,7 +93,7 @@ class TabThemeUtils {
     themeData.contentArea
       ..color = contentAreaColor
       ..padding = const EdgeInsets.all(8)
-      ..border = BorderSide.none;
+      ..border = borderSide;
 
     return themeData;
   }

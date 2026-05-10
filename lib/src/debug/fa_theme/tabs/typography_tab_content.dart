@@ -1,4 +1,4 @@
-part of '../../core.dart';
+part of '../../../core.dart';
 
 class TypographyTabContent extends StatefulWidget {
   const TypographyTabContent({super.key});
@@ -21,7 +21,6 @@ class _TypographyTabContentState extends State<TypographyTabContent> {
       useMaterial3: true,
     );
 
-    // Đây chính là bộ TextTheme "vằng vặc" thông số mà Flutter đã tính toán xong
     final TextTheme materialBase = rawMaterialTheme.textTheme;
 
     // Get the textTheme that has already been rendered
@@ -30,12 +29,6 @@ class _TypographyTabContentState extends State<TypographyTabContent> {
     final tokens = faTheme.tokens;
     final typography = tokens.typography;
     final Typography materialTypography = getMaterialTypography();
-
-    // Use the Material's default TextTheme
-    // (without any Artist modifications) as a benchmark for comparison.
-    // final TextTheme materialBase = faTheme.brightness == Brightness.dark
-    //     ? materialTypography.white
-    //     : materialTypography.black;
 
     return Column(
       children: [
@@ -187,7 +180,7 @@ class _TypographyTabContentState extends State<TypographyTabContent> {
                 ),
                 const SizedBox(height: 4),
                 Text(
-                  row.getInfo(row.style), // Dùng helper để lấy text sạch
+                  row.getInfo(row.style),
                   style: TextStyle(
                     fontSize: 12,
                     color: context.faTokens.colors.textSecondary,
@@ -284,7 +277,6 @@ class _TypographyTabContentState extends State<TypographyTabContent> {
     TextStyle base,
   ) {
     final faTheme = FaThemeHub.instance.getCurrentTheme();
-    // Lấy bộ khung chuẩn của Material theo Brightness
     final Typography platformTypography = Typography.material2021(
       platform: defaultTargetPlatform,
     );
@@ -292,8 +284,6 @@ class _TypographyTabContentState extends State<TypographyTabContent> {
         ? platformTypography.white
         : platformTypography.black;
 
-    // TUYỆT CHIÊU CUỐI: Lấy style chuẩn từ Platform,
-    // sau đó dùng .copyWith() để "ép" nó phải mang giá trị thực.
     final TextStyle platformStyle = _getPlatformStyleByName(platformBase, name);
 
     // Ép kiểu resolved để lấy được con số M3 chuẩn (như 57.0, 32.0...)

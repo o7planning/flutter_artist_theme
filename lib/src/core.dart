@@ -6,9 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_artist_commons_ui/flutter_artist_commons_ui.dart';
 import 'package:flutter_artist_theme/src/utils/davi_table_utils.dart';
 
-import 'debug/model/typography_row_data.dart';
-import 'debug/tabs/_build_helper.dart';
-import 'debug/theme_inspector_dialog.dart';
+import 'debug/_build_helper.dart';
+import 'debug/fa_theme/model/typography_row_data.dart';
 import 'default_pro_theme.dart';
 import 'default_theme.dart';
 
@@ -18,9 +17,9 @@ part 'core/_fa_theme_hub.dart';
 part 'core/_fa_theme_shortcut.dart';
 part 'core/_fa_theme_tokens.dart';
 part 'core/_theme_extension.dart';
-part 'debug/model/color_row_data.dart';
-part 'debug/tabs/color_tab_content.dart';
-part 'debug/tabs/typography_tab_content.dart';
+part 'debug/fa_theme/model/color_row_data.dart';
+part 'debug/fa_theme/tabs/color_tab_content.dart';
+part 'debug/fa_theme/tabs/typography_tab_content.dart';
 part 'dialog/_theme_dialog.dart';
 
 typedef FaThemeBuilder = Widget Function(BuildContext context, ThemeData theme);
@@ -50,12 +49,11 @@ class FlutterArtistTheme extends StatelessWidget {
     );
   }
 
-  static Future<void> showDebugDialog(BuildContext context) async {
-    return await showDialog(
-      context: context,
-      builder: (_) {
-        return const ThemeViewerDialog();
-      },
-    );
-  }
+  // static Future<void> showDebugThemeDialog(BuildContext context) async {
+  //   return await  ThemeInspectorDialog.show(context);
+  // }
+  //
+  // static Future<void> showDebugFaColorsDialog(BuildContext context) async {
+  //   return await  FaColorsInspectorDialog.show(context);
+  // }
 }

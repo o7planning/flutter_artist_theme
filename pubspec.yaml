@@ -13,10 +13,14 @@ dependencies:
 
   davi: ^4.0.1
   tabbed_view: ^3.1.0
+  flutter_widget_from_html: ^0.17.1
+  http: ^1.6.0
 
   flutter_artist_core: ^0.0.1
 
   flutter_artist_commons_ui: ^0.0.1
+
+  flutter_left_right_container: ^0.0.1
 
 dev_dependencies:
   flutter_test:
@@ -65,3 +69,5 @@ dependency_overrides:
     path: ../flutter_artist_core
   flutter_artist_commons_ui:
     path: ../flutter_artist_commons_ui
+  flutter_left_right_container:
+    path: ../flutter_left_right_container
